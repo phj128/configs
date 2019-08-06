@@ -13,7 +13,7 @@ Philip H. S. Torr
 Xiaogang Wang
 Hongsheng Li
 Hao Su
-Philipp Kr?henb®πhl
+Philipp Kr?henb√ºhl
 Ross Girshick
 Josef Sivic
 Kristen Grauman
@@ -78,9 +78,9 @@ David A. Forsyth
 Andrew Zisserman
 Stephen Lin
 Yi Ma
-Ren®¶ Vidal
+Ren√© Vidal
 Geoffrey Hinton
-Piotr Doll®¢r
+Piotr Doll√°r
 Eric P. Xing
 Alan L. Yuille
 Dieter Fox
