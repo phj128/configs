@@ -1,3 +1,6 @@
+﻿ICCV
+ECCV
+CVPR
 Jitendra Malik
 Kaiming He
 Alex Kendall
@@ -13,7 +16,7 @@ Philip H. S. Torr
 Xiaogang Wang
 Hongsheng Li
 Hao Su
-Philipp Kr?henbühl
+Philipp Krähenbühl
 Ross Girshick
 Josef Sivic
 Kristen Grauman
@@ -22,7 +25,7 @@ Song-Chun Zhu
 Serge Belongie
 Andreas Geiger
 Angela Dai
-Matthias Nie?ner
+Matthias Nießner
 Fisher Yu
 Trevor Darrell
 Jianxiong Xiao
