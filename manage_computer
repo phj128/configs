@@ -1,0 +1,63 @@
+# ss
+sudo apt-get install -y python-pip
+sudo apt-get install -y git
+sudo pip install setuptools
+sudo pip install --upgrade pip
+sudo pip install git+https://github.com/shadowsocks/shadowsocks.git@master
+
+nohup /usr/bin/python /usr/local/bin/sslocal -s x.x.x.x -p 9050 -k xxxx -m aes-256-cfb &
+
+sudo apt-get install -y privoxy
+sudo mv /etc/privoxy/config /etc/privoxy/config.bak
+sudo touch /etc/privoxy/config
+echo 'forward-socks5 / localhost:1080 .' | sudo tee -a  /etc/privoxy/config
+echo 'listen-address localhost:8118' | sudo tee -a  /etc/privoxy/config
+sudo service privoxy restart
+sudo touch /usr/local/bin/proxy
+echo '#!/bin/bash' | sudo tee -a  /usr/local/bin/proxy
+echo 'export http_proxy=http://localhost:8118' | sudo tee -a  /usr/local/bin/proxy
+echo 'export https_proxy=http://localhost:8118' | sudo tee -a  /usr/local/bin/proxy
+echo '$*' | sudo tee -a  /usr/local/bin/proxy
+sudo chmod 777 /usr/local/bin/proxy
+
+# install zsh
+sudo apt-get install -y zsh
+chsh -s /bin/zsh
+sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+
+# fzf
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
+
+# autojump
+git clone https://github.com/wting/autojump.git
+cd autojump
+./install.py
+
+# auto-suggestions
+git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
+
+# syntax-highlighting
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
+
+# configure .zshrc to make them work
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+
+# powerlevel10k by manual
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
+echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
+source ~/.zshrc
+
+# sshsever
+sudo apt-get install openssh-server
+
+# ssh config
+cd .ssh
+vi config
+## put them in it, then you can connect the server by ssh xxx
+Host xxx
+    Hostname 10.aa.bb.cc
+    User yourname
+    Port yy
+    LocalForward localport_number localhost:server_port_number
+
