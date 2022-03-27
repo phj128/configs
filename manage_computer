@@ -61,3 +61,8 @@ Host xxx
     Port yy
     LocalForward localport_number localhost:server_port_number
 
+# vim
+if press crtl-s, press crtl-q can quit the mode.
+or add in ~/.zshrc or ~/.bashrc
+stty -ixon
+
