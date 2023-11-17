@@ -40,12 +40,18 @@ git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugi
 # syntax-highlighting
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
 
+# zsh-vi-mode
+git clone https://github.com/jeffreytse/zsh-vi-mode $ZSH_CUSTOM/plugins/zsh-vi-mode
+
 # configure .zshrc to make them work
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting zsh-vi-mode z)
+# Add following to the end of .zshrc as zsh-vi-mode has conflict key bindings with fzf.
+zvm_after_init_commands+=('[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh')
+# Remember to restart the whole terminal to make them work instead of only using source ~/.zshrc
 
 # powerlevel10k by manual
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
-echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.powerlevel10k
+echo 'source ~/.powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
 source ~/.zshrc
 
 # sshsever
@@ -65,4 +71,11 @@ Host xxx
 if press crtl-s, press crtl-q can quit the mode.
 or add in ~/.zshrc or ~/.bashrc
 stty -ixon
+
+# For mac, homebrew
+bash -c “$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)”
+# It may cause error like "#: “#!/bin/bash: No such file or directory", because it cannot identify the start of install.sh, so we manually download it by:
+curl https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh -o x.sh
+# And open x.sh, remove the first several comments lines. And run:
+bash x.sh
 
