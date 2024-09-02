@@ -40,11 +40,12 @@ git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugi
 # syntax-highlighting
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
 
-# zsh-vi-mode
+# zsh-vi-mode not good, do not use
 git clone https://github.com/jeffreytse/zsh-vi-mode $ZSH_CUSTOM/plugins/zsh-vi-mode
 
 # configure .zshrc to make them work
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting zsh-vi-mode z)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting zsh-vi-mode z) # if for zsh-vi-mode
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting vi-mode z) # with default vi-mode, no need to install
 # Add following to the end of .zshrc as zsh-vi-mode has conflict key bindings with fzf.
 zvm_after_init_commands+=('[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh')
 # Remember to restart the whole terminal to make them work instead of only using source ~/.zshrc
