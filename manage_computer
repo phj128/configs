@@ -80,3 +80,5 @@ curl https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh -o x.sh
 # And open x.sh, remove the first several comments lines. And run:
 bash x.sh
 
+# Switch caps and crtl
+sudo apt install gnome-tweaks
